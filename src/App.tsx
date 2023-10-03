@@ -1,12 +1,22 @@
-import { useState } from "react";
 import "./App.css";
-import { Box, Button, Grid, List } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <Grid></Grid>;
+  return (
+    <Grid
+      templateAreas={{
+        base: `"nav main"`,
+        lg: `"nav nav" "aside main"`,
+      }}
+    >
+      <GridItem area="nav"></GridItem>
+      <Show above="lg">
+        <GridItem area="aside"></GridItem>
+      </Show>
+      <GridItem area="main"></GridItem>
+    </Grid>
+  );
 }
 
 export default App;
